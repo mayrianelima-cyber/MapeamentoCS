@@ -140,22 +140,34 @@ footer {
 .btn-bpmn:hover {
   text-decoration: underline;
 }
-/* ===== FORÇA: cards sem aparência de link (somente na lista) ===== */
-#lista-processos > a.process-card,
-#lista-processos > a.process-card:link,
-#lista-processos > a.process-card:visited,
-#lista-processos > a.process-card:hover,
-#lista-processos > a.process-card:active,
-#lista-processos > a.process-card:focus {
+/* =====================================================
+   REMOVE SUBLINHADO DOS CARDS — GLOBAL (DEFINITIVO)
+   ===================================================== */
+
+/* card como link */
+a.process-card,
+a.process-card:link,
+a.process-card:visited,
+a.process-card:hover,
+a.process-card:active,
+a.process-card:focus {
   text-decoration: none !important;
   text-decoration-line: none !important;
   color: inherit !important;
+  display: block;
 }
 
-/* garante que nenhum texto interno fique sublinhado */
-#lista-processos > a.process-card * {
+/* remove sublinhado de tudo dentro do card */
+a.process-card *,
+a.process-card h2,
+a.process-card p,
+a.process-card span {
   text-decoration: none !important;
   text-decoration-line: none !important;
 }
 
+/* mantém apenas o botão BPMN com estilo controlado */
+.btn-bpmn:hover {
+  text-decoration: none !important;
 }
+
