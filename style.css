@@ -134,20 +134,23 @@ a.process-card {
   color: inherit;
   display: block;
 }
-/* ===== REMOVE COMPLETAMENTE O ESTILO DE LINK DOS CARDS ===== */
-a.process-card,
-a.process-card:link,
-a.process-card:visited,
-a.process-card:hover,
-a.process-card:active,
-a.process-card:focus {
+/* Remove sublinhado e cor de link de TUDO que estiver dentro do card */
+a.process-card a,
+a.process-card a:link,
+a.process-card a:visited,
+a.process-card a:hover,
+a.process-card a:active,
+a.process-card a:focus {
   text-decoration: none !important;
   color: inherit !important;
 }
 
-/* garante que textos internos não herdem sublinhado */
-a.process-card * {
+/* Garante que H2 e P não apareçam como link */
+a.process-card h2,
+a.process-card p,
+a.process-card span {
   text-decoration: none !important;
 }
+
 
 }
