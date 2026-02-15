@@ -4,88 +4,209 @@
   <meta charset="UTF-8">
   <title>Mapeamento de Processos | CO-LEAGUE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --rosa: #ff2e80;
+      --verde: #05d39d;
+      --cinza: #f4f4f4;
+      --texto: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cinza);
+      color: var(--texto);
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--rosa), var(--verde));
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    #backBtn {
+      display: none;
+      margin: 20px;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, var(--rosa), var(--verde));
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    #lista-processos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .process-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 6px solid var(--rosa);
+    }
+
+    .process-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .process-card h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--rosa);
+    }
+
+    .process-card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .process-card span {
+      display: inline-block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: var(--verde);
+    }
+
+    #viewer {
+      display: none;
+      padding: 20px;
+    }
+
+    #viewer iframe {
+      width: 100%;
+      height: 85vh;
+      border: none;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+      background: #fff;
+      margin-top: 40px;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- BOTÃO VOLTAR -->
 <button id="backBtn" onclick="voltar()">⬅ Voltar aos Processos</button>
 
-<!-- HEADER -->
 <header id="header">
   <h1>Mapeamento de Processos</h1>
-  <p>CO-LEAGUE • Governança • BPMN • Lei de Incentivo ao Esporte</p>
+  <p>CO-LEAGUE • Governança • BPMN • Documento Institucional</p>
 </header>
 
-<!-- LISTA DE PROCESSOS -->
-<main id="lista-processos">
+<main>
 
-  <section class="process-card"
-    onclick="location.href='#diagram/gfx-fe762e97-8a78-4b50-b15b-caaa741eaa37'">
-    <h2>📦 Compras</h2>
-    <p>Aquisição de bens e serviços com controle orçamentário, três cotações e conformidade legal.</p>
-    <span>Visualizar BPMN</span>
+  <!-- LISTA -->
+  <section id="lista-processos">
+
+    <div class="process-card" onclick="abrir('COMPRAS.svg')">
+      <h2>📦 Compras</h2>
+      <p>Aquisição de bens e serviços com controle orçamentário e conformidade legal.</p>
+      <span>Visualizar BPMN</span>
+    </div>
+
+    <div class="process-card" onclick="abrir('FINANCEIRO-SIBRASTEM.svg')">
+      <h2>💰 Financeiro</h2>
+      <p>Execução financeira, pagamentos e prestação de contas de projetos.</p>
+      <span>Visualizar BPMN</span>
+    </div>
+
+    <div class="process-card" onclick="abrir('ATENDIMENTO.svg')">
+      <h2>📞 Atendimento</h2>
+      <p>Gestão de atletas, responsáveis e comunicação institucional.</p>
+      <span>Visualizar BPMN</span>
+    </div>
+
+    <div class="process-card" onclick="abrir('MARKETING.svg')">
+      <h2>📣 Marketing</h2>
+      <p>Divulgação institucional e relacionamento com patrocinadores.</p>
+      <span>Visualizar BPMN</span>
+    </div>
+
   </section>
 
-  <section class="process-card"
-    onclick="location.href='#diagram/FINANCEIRO_ID_AQUI'">
-    <h2>💰 Financeiro</h2>
-    <p>Execução de despesas por projeto incentivado, pagamentos e prestação de contas.</p>
-    <span>Visualizar BPMN</span>
-  </section>
-
-  <section class="process-card"
-    onclick="location.href='#diagram/ATENDIMENTO_ID_AQUI'">
-    <h2>📞 Atendimento</h2>
-    <p>Gestão de atletas, responsáveis e comunicação institucional.</p>
-    <span>Visualizar BPMN</span>
-  </section>
-
-  <section class="process-card"
-    onclick="location.href='#diagram/MARKETING_ID_AQUI'">
-    <h2>📣 Marketing</h2>
-    <p>Divulgação institucional, patrocinadores e projetos incentivados.</p>
-    <span>Visualizar BPMN</span>
-  </section>
-
-  <section class="process-card"
-    onclick="location.href='#diagram/PROJETOS_ID_AQUI'">
-    <h2>📊 Projetos</h2>
-    <p>Gestão, execução, monitoramento e encerramento de projetos esportivos.</p>
-    <span>Visualizar BPMN</span>
+  <!-- VISUALIZADOR -->
+  <section id="viewer">
+    <iframe id="iframe"></iframe>
   </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2026 CO-LEAGUE • Documento Institucional</p>
+  © 2026 CO-LEAGUE • Documento Institucional
 </footer>
 
-<!-- SCRIPT -->
 <script>
-function voltar() {
-  window.location.hash = '';
+function abrir(arquivo) {
+  location.hash = arquivo;
 }
 
-function controlarBotaoVoltar() {
+function voltar() {
+  location.hash = '';
+}
+
+function controlarTela() {
+  const hash = location.hash.replace('#', '');
+  const lista = document.getElementById('lista-processos');
+  const viewer = document.getElementById('viewer');
+  const iframe = document.getElementById('iframe');
   const backBtn = document.getElementById('backBtn');
   const header = document.getElementById('header');
-  const lista = document.getElementById('lista-processos');
 
-  if (window.location.hash.includes('diagram')) {
-    backBtn.style.display = 'block';
-    header.style.display = 'none';
+  if (hash) {
+    iframe.src = hash;
     lista.style.display = 'none';
+    viewer.style.display = 'block';
+    backBtn.style.display = 'inline-block';
+    header.style.display = 'none';
   } else {
+    iframe.src = '';
+    lista.style.display = 'grid';
+    viewer.style.display = 'none';
     backBtn.style.display = 'none';
     header.style.display = 'block';
-    lista.style.display = 'grid';
   }
 }
 
-window.addEventListener('load', controlarBotaoVoltar);
-window.addEventListener('hashchange', controlarBotaoVoltar);
+window.addEventListener('load', controlarTela);
+window.addEventListener('hashchange', controlarTela);
 </script>
 
 </body>
