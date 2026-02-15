@@ -4,11 +4,8 @@
   <meta charset="UTF-8">
   <title>Mapeamento de Processos | CO-LEAGUE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- TEMPLATE ORIGINAL -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- BOTÃO VOLTAR -->
@@ -17,7 +14,7 @@
 <!-- HEADER -->
 <header id="header">
   <h1>Mapeamento de Processos</h1>
-  <p>CO-LEAGUE • Governança • BPMN • Documento Institucional</p>
+  <p>CO-LEAGUE • Governança • BPMN • Lei de Incentivo ao Esporte</p>
 </header>
 
 <!-- LISTA DE PROCESSOS -->
@@ -25,73 +22,66 @@
 
   <section class="process-card" onclick="abrir('COMPRAS.svg')">
     <h2>📦 Compras</h2>
-    <p>Aquisição de bens e serviços com controle orçamentário.</p>
+    <p>Aquisição de bens e serviços com controle orçamentário, três cotações e conformidade legal.</p>
     <span>Visualizar BPMN</span>
   </section>
 
   <section class="process-card" onclick="abrir('FINANCEIRO-SIBRASTEM.svg')">
     <h2>💰 Financeiro</h2>
-    <p>Execução de despesas e prestação de contas.</p>
+    <p>Execução de despesas por projeto incentivado, pagamentos e prestação de contas.</p>
     <span>Visualizar BPMN</span>
   </section>
 
   <section class="process-card" onclick="abrir('ATENDIMENTO.svg')">
     <h2>📞 Atendimento</h2>
-    <p>Gestão de atletas e comunicação institucional.</p>
+    <p>Gestão de atletas, responsáveis e comunicação institucional.</p>
     <span>Visualizar BPMN</span>
   </section>
 
-  <section class="process-card" onclick="abrir('MARKETING.svg')">
+   <section class="process-card" onclick="abrir('MARKETING.svg')">
     <h2>📣 Marketing</h2>
-    <p>Divulgação institucional e patrocinadores.</p>
+    <p>Divulgação institucional, patrocinadores e projetos incentivados.</p>
+    <span>Visualizar BPMN</span>
+  </section>
+
+  <section class="process-card"
+    onclick="location.href='#diagram/PROJETOS_ID_AQUI'">
+    <h2>📊 Projetos</h2>
+    <p>Gestão, execução, monitoramento e encerramento de projetos esportivos.</p>
     <span>Visualizar BPMN</span>
   </section>
 
 </main>
 
-<!-- VISUALIZAÇÃO BPMN -->
-<section id="viewer" style="display:none; padding:20px;">
-  <iframe id="iframe" style="width:100%; height:85vh; border:none;"></iframe>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  © 2026 CO-LEAGUE • Documento Institucional
+  <p>© 2026 CO-LEAGUE • Documento Institucional</p>
 </footer>
 
+<!-- SCRIPT -->
 <script>
-function abrir(arquivo) {
-  location.hash = arquivo;
-}
-
 function voltar() {
-  location.hash = '';
+  window.location.hash = '';
 }
 
-function controlarTela() {
-  const hash = location.hash.replace('#', '');
-  const lista = document.getElementById('lista-processos');
-  const viewer = document.getElementById('viewer');
-  const iframe = document.getElementById('iframe');
+function controlarBotaoVoltar() {
   const backBtn = document.getElementById('backBtn');
   const header = document.getElementById('header');
+  const lista = document.getElementById('lista-processos');
 
-  if (hash) {
-    iframe.src = hash;
-    lista.style.display = 'none';
-    viewer.style.display = 'block';
-    backBtn.style.display = 'inline-block';
+  if (window.location.hash.includes('diagram')) {
+    backBtn.style.display = 'block';
     header.style.display = 'none';
+    lista.style.display = 'none';
   } else {
-    iframe.src = '';
-    lista.style.display = 'grid';
-    viewer.style.display = 'none';
     backBtn.style.display = 'none';
     header.style.display = 'block';
+    lista.style.display = 'grid';
   }
 }
 
-window.addEventListener('load', controlarTela);
-window.addEventListener('hashchange', controlarTela);
+window.addEventListener('load', controlarBotaoVoltar);
+window.addEventListener('hashchange', controlarBotaoVoltar);
 </script>
 
 </body>
