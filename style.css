@@ -123,4 +123,9 @@ footer {
   main {
     padding: 30px 20px;
   }
+  .process-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 }
