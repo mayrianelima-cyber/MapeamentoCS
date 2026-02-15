@@ -1,36 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapeamento de Processos | CO-LEAGUE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BOTÃO VOLTAR -->
+<button id="backBtn" onclick="voltar()">⬅ Voltar aos Processos</button>
+
+<!-- HEADER -->
+<header id="header">
+  <h1>Mapeamento de Processos</h1>
+  <p>CO-LEAGUE • Governança • BPMN • Lei de Incentivo ao Esporte</p>
+</header>
+
 <!-- LISTA DE PROCESSOS -->
 <main id="lista-processos">
 
   <section class="process-card"
-    onclick="location.href='diagram/index.html#diagram/gfx-fe762e97-8a78-4b50-b15b-caaa741eaa37">
+    onclick="location.href='#diagram/gfx-fe762e97-8a78-4b50-b15b-caaa741eaa37'">
     <h2>📦 Compras</h2>
     <p>Aquisição de bens e serviços com controle orçamentário, três cotações e conformidade legal.</p>
     <span>Visualizar BPMN</span>
   </section>
 
   <section class="process-card"
-    onclick="location.href='diagram/index.html#diagram/FINANCEIRO_ID_REAL'">
+    onclick="location.href='#diagram/FINANCEIRO_ID_AQUI'">
     <h2>💰 Financeiro</h2>
     <p>Execução de despesas por projeto incentivado, pagamentos e prestação de contas.</p>
     <span>Visualizar BPMN</span>
   </section>
 
   <section class="process-card"
-    onclick="location.href='diagram/index.html#diagram/ATENDIMENTO_ID_REAL'">
+    onclick="location.href='#diagram/ATENDIMENTO_ID_AQUI'">
     <h2>📞 Atendimento</h2>
     <p>Gestão de atletas, responsáveis e comunicação institucional.</p>
     <span>Visualizar BPMN</span>
   </section>
 
   <section class="process-card"
-    onclick="location.href='diagram/index.html#diagram/MARKETING_ID_REAL'">
+    onclick="location.href='#diagram/MARKETING_ID_AQUI'">
     <h2>📣 Marketing</h2>
     <p>Divulgação institucional, patrocinadores e projetos incentivados.</p>
     <span>Visualizar BPMN</span>
   </section>
 
   <section class="process-card"
-    onclick="location.href='diagram/index.html#diagram/PROJETOS_ID_REAL'">
+    onclick="location.href='#diagram/PROJETOS_ID_AQUI'">
     <h2>📊 Projetos</h2>
     <p>Gestão, execução, monitoramento e encerramento de projetos esportivos.</p>
     <span>Visualizar BPMN</span>
@@ -38,4 +57,36 @@
 
 </main>
 
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 CO-LEAGUE • Documento Institucional</p>
+</footer>
 
+<!-- SCRIPT -->
+<script>
+function voltar() {
+  window.location.hash = '';
+}
+
+function controlarBotaoVoltar() {
+  const backBtn = document.getElementById('backBtn');
+  const header = document.getElementById('header');
+  const lista = document.getElementById('lista-processos');
+
+  if (window.location.hash.includes('diagram')) {
+    backBtn.style.display = 'block';
+    header.style.display = 'none';
+    lista.style.display = 'none';
+  } else {
+    backBtn.style.display = 'none';
+    header.style.display = 'block';
+    lista.style.display = 'grid';
+  }
+}
+
+window.addEventListener('load', controlarBotaoVoltar);
+window.addEventListener('hashchange', controlarBotaoVoltar);
+</script>
+
+</body>
+</html>
