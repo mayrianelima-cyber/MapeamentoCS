@@ -140,5 +140,22 @@ footer {
 .btn-bpmn:hover {
   text-decoration: underline;
 }
+/* ===== FORÇA: cards sem aparência de link (somente na lista) ===== */
+#lista-processos > a.process-card,
+#lista-processos > a.process-card:link,
+#lista-processos > a.process-card:visited,
+#lista-processos > a.process-card:hover,
+#lista-processos > a.process-card:active,
+#lista-processos > a.process-card:focus {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  color: inherit !important;
+}
+
+/* garante que nenhum texto interno fique sublinhado */
+#lista-processos > a.process-card * {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
 
 }
